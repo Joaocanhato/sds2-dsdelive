@@ -8,14 +8,14 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-@Entity
-@Table(name = "tb_product")
+@Entity // Transforma a classe em uma entidade para que poassa ser instânciada no banco 
+@Table(name = "tb_product") // Associa a entidade com a tabela tb_product do banco
 public class Product implements Serializable{
 
 	private static final long serialVersionUID = 1L;
 	
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Id // Seta a variável id como chave primaria
+	@GeneratedValue(strategy = GenerationType.IDENTITY) // também seta para que seja autoincrementada
 	private Long id;
 	private String name;
 	private Double price;

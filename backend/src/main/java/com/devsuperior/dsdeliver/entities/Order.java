@@ -15,14 +15,14 @@ import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
 
-@Entity
-@Table(name = "tb_order")
+@Entity // Transforma a classe em uma entidade para que poassa ser instânciada no banco 
+@Table(name = "tb_order") // Associa a entidade com a tabela tb_order do banco
 public class Order implements Serializable{
 	
 	private static final long serialVersionUID = 1L;
 	
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Id // Seta a variável id como chave primaria
+	@GeneratedValue(strategy = GenerationType.IDENTITY) // também seta para que seja autoincrementada
 	private Long id;
 	private String address;
 	private Double latitude;
@@ -30,7 +30,7 @@ public class Order implements Serializable{
 	private Instant moment;
 	private OrderStatus status;
 	
-	@ManyToMany
+	@ManyToMany // Set será relacionado a uma tabela muitos para muitos, setando abaixo as colunas que serão gravadas no join
 	@JoinTable(name = "tb_order_product",
 			   joinColumns = @JoinColumn(name = "order_id"),
 			   inverseJoinColumns = @JoinColumn(name = "product_id")
